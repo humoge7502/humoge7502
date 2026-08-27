@@ -8,8 +8,8 @@
 </div>
 
 <div align="center">
-  <a href="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&pause=1100&color=00D9FF&center=true&vCenter=true&random=false&width=640&separator=%3B&lines=Building+Q-Trust+%E2%80%94+the+post-quantum+trust+protocol;Solidity+%C2%B7+TypeScript+%C2%B7+Python+%C2%B7+PyTorch;Scan+%E2%86%92+score+%E2%86%92+plan+%E2%86%92+attest;Ship+fast.+Test+harder.+Anchor+on-chain.">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&pause=1100&color=00D9FF&center=true&vCenter=true&random=false&width=640&separator=%3B&lines=Building+Q-Trust+%E2%80%94+the+post-quantum+trust+protocol;Solidity+%C2%B7+TypeScript+%C2%B7+Python+%C2%B7+PyTorch;Scan+%E2%86%92+score+%E2%86%92+plan+%E2%86%92+attest;Ship+fast.+Test+harder.+Anchor+on-chain." alt="Typing SVG"/>
+  <a href="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&pause=1100&color=00D9FF&center=true&vCenter=true&random=false&width=640&separator=%3B&lines=Building+Q-Trust+%E2%80%94+the+post-quantum+trust+protocol;Open+source%3A+qtrust-sdk+%C2%B7+qtrust-inspector+on+PyPI;Scan+%E2%86%92+score+%E2%86%92+plan+%E2%86%92+attest;Ship+fast.+Test+harder.+Anchor+on-chain.">
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&pause=1100&color=00D9FF&center=true&vCenter=true&random=false&width=640&separator=%3B&lines=Building+Q-Trust+%E2%80%94+the+post-quantum+trust+protocol;Open+source%3A+qtrust-sdk+%C2%B7+qtrust-inspector+on+PyPI;Scan+%E2%86%92+score+%E2%86%92+plan+%E2%86%92+attest;Ship+fast.+Test+harder.+Anchor+on-chain." alt="Typing SVG"/>
   </a>
 </div>
 
@@ -34,6 +34,7 @@ class Engineer:
     building   = "Q-Trust — PQC migration & attestation protocol (Base L2)"
     stack      = ["Solidity/Foundry", "TypeScript/Fastify/Next.js",
                   "Python/PyTorch", "Rust (learning)"]
+    pypi       = ["qtrust-sdk", "qtrust-inspector"]
     principles = ["measure, then claim",
                   "189 tests > 189 promises",
                   "every attestation is tamper-evident or it didn't happen"]
@@ -45,7 +46,11 @@ class Engineer:
 
 <div align="center">
   <a href="https://github.com/humoge7502/q-trust">
-    <img src="assets/spotlight-banner.png" width="92%" alt="Q-Trust — post-quantum trust protocol"/>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/profile-hero-dark.png"/>
+      <source media="(prefers-color-scheme: light)" srcset="assets/profile-hero-light.png"/>
+      <img src="assets/profile-hero-dark.png" width="92%" alt="Q-Trust — post-quantum trust protocol"/>
+    </picture>
   </a>
 
 <br/>
@@ -124,6 +129,18 @@ and seal tamper-proof attestations on Base L2 via 11 UUPS registries.
 <div align="center">
   <img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=humoge7502&bg_color=0d1117&color=7dd3fc&line=00d9ff&point=a855f7&area=true&hide_border=true" alt="activity graph"/>
 </div>
+
+---
+
+### 📡 Recent Activity
+
+<!-- START:ACTIVITY -->
+- 🌱 Recent commits will appear here automatically (daily refresh)
+- 🛰️ Public events only — real pushes, stars and releases, no filler
+- ⚡ First run: Actions tab → “Update Recent Activity” → Run workflow
+<!-- END:ACTIVITY -->
+
+<sub>↺ auto-refreshed daily by [update-activity.yml](.github/workflows/update-activity.yml) — self-built GitHub Actions pipeline</sub>
 
 ---
 
