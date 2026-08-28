@@ -135,9 +135,11 @@ and seal tamper-proof attestations on Base L2 via 11 UUPS registries.
 ### 📡 Recent Activity
 
 <!-- START:ACTIVITY -->
-- 🌱 Recent commits will appear here automatically (daily refresh)
-- 🛰️ Public events only — real pushes, stars and releases, no filler
-- ⚡ First run: Actions tab → “Update Recent Activity” → Run workflow
+- 📦 discussion in **q-trust**
+- 📦 discussion in **q-trust**
+- 📦 discussion in **q-trust**
+- 🏷️ published release v2.2.0 in **q-trust**
+- 🏷️ published release v2.1.1 in **q-trust**
 <!-- END:ACTIVITY -->
 
 <sub>↺ auto-refreshed daily by [update-activity.yml](.github/workflows/update-activity.yml) — self-built GitHub Actions pipeline</sub>
