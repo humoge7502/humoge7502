@@ -4,6 +4,8 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-krishna--puri-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krishna-puri-3a9bba432)
 
+<img src="profile-banner.png" alt="Krishna Puri — systems-minded engineer. Two flagships: VoltHub CSMS (two-engine EV charging) and Q-Trust (post-quantum trust protocol)." width="100%">
+
 ---
 
 ## The flagships
@@ -56,6 +58,15 @@ $ qtrust scan --deep --cbom
 </td>
 </tr>
 </table>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=humoge7502&show_icons=true&rank_icon=github&hide_border=true&bg_color=0D1117&title_color=818CF8&icon_color=38BDF8&text_color=C9D1D9" height="160" alt="GitHub stats — humoge7502"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=humoge7502&layout=compact&hide_border=true&bg_color=0D1117&title_color=818CF8&text_color=C9D1D9&langs_count=8&size_weight=0.5&count_weight=0.5" height="160" alt="Top languages by contribution"/>
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=humoge7502&theme=discord&no-frame=true&margin-w=8&no-bg=true" alt="GitHub profile trophies — humoge7502"/>
+</p>
 
 ## What I actually do
 
