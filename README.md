@@ -1,10 +1,18 @@
 # Krishna Puri
 
+<img src="profile-banner.png" alt="Krishna Puri — systems-minded engineer. Two flagships: VoltHub CSMS (two-engine EV charging) and Q-Trust (post-quantum trust protocol). The portrait sits in an indigo ring with one cyan notch: five-sixths earned, one-sixth still to be earned — the ring deliberately never closes." width="100%">
+
 **Systems-minded engineer — I build the deterministic parts (money paths, concurrency, protocols) and the emerging parts (post-quantum cryptography, attestations) with the same discipline: trade-offs named, claims receipted, races proven in CI.**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-krishna--puri-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/krishna-puri-3a9bba432)
+> Hi — I'm Krishna. The ring around my portrait is five-sixths indigo and one-sixth cyan: five-sixths earned, one-sixth still to be earned. That is the whole philosophy of this profile — every badge below is a live status, not a claim. If a pipeline goes red, the badge goes red with it.
 
-<img src="profile-banner.png" alt="Krishna Puri — systems-minded engineer. Two flagships: VoltHub CSMS (two-engine EV charging) and Q-Trust (post-quantum trust protocol)." width="100%">
+---
+
+## Live receipts
+
+| VoltHub CSMS | Q-Trust |
+| --- | --- |
+| [![ci](https://github.com/humoge7502/VoltHub-CSMS/actions/workflows/ci.yml/badge.svg)](https://github.com/humoge7502/VoltHub-CSMS/actions/workflows/ci.yml) [![release](https://github.com/humoge7502/VoltHub-CSMS/actions/workflows/release.yml/badge.svg)](https://github.com/humoge7502/VoltHub-CSMS/actions/workflows/release.yml) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/humoge7502/VoltHub-CSMS/badge)](https://scorecard.dev/viewer.html?url=github.com/humoge7502/VoltHub-CSMS) [![docs site](https://img.shields.io/badge/docs-site-c6f24e)](https://humoge7502.github.io/VoltHub-CSMS/) | [![ci](https://github.com/humoge7502/q-trust/actions/workflows/ci.yml/badge.svg)](https://github.com/humoge7502/q-trust/actions/workflows/ci.yml) [![security](https://github.com/humoge7502/q-trust/actions/workflows/security.yml/badge.svg)](https://github.com/humoge7502/q-trust/actions/workflows/security.yml) [![pqc self-scan](https://github.com/humoge7502/q-trust/actions/workflows/pqc-scan.yml/badge.svg)](https://github.com/humoge7502/q-trust/actions/workflows/pqc-scan.yml) [![docs site](https://img.shields.io/badge/docs-mkdocs%20material-00D9FF)](https://humoge7502.github.io/q-trust) |
 
 ---
 
@@ -59,15 +67,6 @@ $ qtrust scan --deep --cbom
 </tr>
 </table>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=humoge7502&show_icons=true&rank_icon=github&hide_border=true&bg_color=0D1117&title_color=818CF8&icon_color=38BDF8&text_color=C9D1D9" height="160" alt="GitHub stats — humoge7502"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=humoge7502&layout=compact&hide_border=true&bg_color=0D1117&title_color=818CF8&text_color=C9D1D9&langs_count=8&size_weight=0.5&count_weight=0.5" height="160" alt="Top languages by contribution"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=humoge7502&theme=discord&no-frame=true&margin-w=8&no-bg=true" alt="GitHub profile trophies — humoge7502"/>
-</p>
-
 ## What I actually do
 
 ```text
@@ -87,8 +86,8 @@ discipline       conventional commits · ADRs · CI-gated audits · receipts ove
 - **Honest limits.** The READMEs say what each project is _not_: simulated
   chargers, prepaid wallet, single-VM deploy, local-store default path. Trust
   compounds faster than hype.
-- **Evidence on every push.** `npm audit` and PQC self-scan are red/green CI
-  gates. If CI can't re-prove a claim, the claim comes off the README.
+- **Evidence on every push.** `npm audit`, CodeQL and the PQC self-scan are
+  red/green CI gates. If CI can't re-prove a claim, the claim comes off the README.
 
 ## Now
 
@@ -97,8 +96,21 @@ discipline       conventional commits · ADRs · CI-gated audits · receipts ove
   already protocol-neutral by design
 - Extending Q-Trust's CBOM coverage toward CNSA 2.0 compliance reporting
 
+## Find me
+
 [**LinkedIn**](https://www.linkedin.com/in/krishna-puri-3a9bba432) ·
 [**VoltHub CSMS**](https://github.com/humoge7502/VoltHub-CSMS) ·
 [**VoltHub docs**](https://humoge7502.github.io/VoltHub-CSMS/) ·
 [**Q-Trust**](https://github.com/humoge7502/q-trust) ·
 [**Q-Trust docs**](https://humoge7502.github.io/q-trust)
+
+<!-- PROFILE README v2 (photo variant) — changes vs the pack's v2:
+1. Banner moved above the positioning line so the portrait is the first thing
+   rendered (GitHub social cards and LinkedIn previews take the first image).
+2. Added the one-paragraph photo opener: the ring is 5/6 indigo, 1/6 cyan —
+   "five-sixths earned, one-sixth still to be earned" ties the portrait to the
+   receipts-over-claims positioning. Delete the blockquote if you prefer the
+   v1 layout; everything else stands alone.
+3. Banner alt text carries the same story (screen readers + social scrapers).
+4. "Find me" relinked to the photo-bearing LinkedIn profile.
+Nothing else changed from the pack's v2 README. -->
