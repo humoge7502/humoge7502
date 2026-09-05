@@ -25,6 +25,28 @@
 
 ---
 
+### ⚡ VoltHub CSMS — two-engine EV charging platform
+
+<a href="https://github.com/humoge7502/VoltHub-CSMS">
+  <img align="right" width="360" alt="VoltHub CSMS architecture" src="https://raw.githubusercontent.com/humoge7502/VoltHub-CSMS/main/docs/architecture-hero.png">
+</a>
+
+Oracle 23ai owns the money path (7 PL/SQL packages, guard triggers, no-DELETE
+privilege model) · TimescaleDB owns telemetry (hypertables, continuous
+aggregates, compression) · joined by an in-transaction outbox + idempotent
+relay. OCPP 1.6J WebSocket gateway + simulator fleet. **Race-tested in CI on
+both engines every push** — and `npm audit` is a hard gate: 0 known CVEs.
+
+[Live docs site](https://humoge7502.github.io/VoltHub-CSMS/) ·
+[Architecture in 1 page](https://github.com/humoge7502/VoltHub-CSMS/blob/main/ARCHITECTURE.md) ·
+[Releases](https://github.com/humoge7502/VoltHub-CSMS/releases)
+
+<br clear="right">
+
+---
+
+---
+
 ### 👨‍💻 About Me
 
 ```python
