@@ -113,7 +113,11 @@ $ qtrust scan --deep --cbom
 ## // SIGNAL FEED
 
 <!-- START:ACTIVITY -->
-- 📡 feed updates daily (03:00 UTC) — real public events only
+- 🗑️ delete in **q-trust**
+- 💬 issue comment in **q-trust**
+- 💬 issue comment in **q-trust**
+- 🗑️ delete in **q-trust**
+- 💬 issue comment in **q-trust**
 <!-- END:ACTIVITY -->
 
 <picture>
