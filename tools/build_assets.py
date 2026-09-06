@@ -85,7 +85,7 @@ def hero(c, photo_b64=None):
     LX, LY, LW, LH = 20, RY, 312, RH
     p.append(f'  <rect x="{LX}" y="{LY}" width="{LW}" height="{LH}" rx="10" fill="{c["panel"]}" stroke="{c["line"]}"/>')
     p.append(mono(f'x="{LX+18}" y="{LY+22}" font-size="11" font-weight="700" letter-spacing="2.5"', c["muted"], "OPERATOR LICENSE"))
-    p.append(mono(f'x="{LX+LW-18}" y="{LY+22}" font-size="10" letter-spacing="1" text-anchor="end"', c["faint"], "ID 0318-696825"))
+    p.append(mono(f'x="{LX+LW-18}" y="{LY+22}" font-size="10" letter-spacing="1" text-anchor="end"', c["faint"], "ID HUMOGE7502"))
 
     # photo slot (or monogram slot until a portrait is published)
     PSZ = 124
@@ -105,7 +105,7 @@ def hero(c, photo_b64=None):
             p.append(f'  <path d="M {_fmt(px+PSZ*gx_/4)} {py+12} V {py+PSZ-12}"/>')
         p.append('  </g>')
         p.append(f'  <g font-family="{MONO}" font-size="40" font-weight="800" letter-spacing="4"><text x="{_fmt(ccx)}" y="{_fmt(ccy+13)}" text-anchor="middle" fill="{c["text"]}" opacity="0.9">KP</text></g>')
-        p.append(mono(f'x="{_fmt(ccx)}" y="{_fmt(ccy+40)}" font-size="9" letter-spacing="1" text-anchor="middle"', c["faint"], "SLOT OPEN · see scripts/README"))
+        p.append(mono(f'x="{_fmt(ccx)}" y="{_fmt(ccy+40)}" font-size="9" letter-spacing="1" text-anchor="middle"', c["faint"], "IDENTITY MARK · AVATAR ON PROFILE"))
     p.append(pixel_brackets(c, px - 6, py - 6, PSZ + 12, PSZ + 12, size=11, color=c["green"], sw=2.5))
 
     # identity rows
@@ -157,11 +157,11 @@ def hero(c, photo_b64=None):
     cw = (RW - 44 - 2 * cgap) / 3
     cells = [
         ("CI · VOLTHUB", "6 JOBS · BOTH ENGINES", c["green"]),
-        ("CI · Q-TRUST", "10 WORKFLOWS", c["green"]),
+        ("CI · Q-TRUST", "11 WORKFLOWS", c["green"]),
         ("SECURITY", "AUDIT + CODEQL GATED", c["violet"]),
         ("DOCS", "2 LIVE SITES", c["cyan"]),
-        ("RELEASES", "10 TAGGED", c["amber"]),
-        ("KNOWN CVEs", "0 · GATED IN CI", c["green"]),
+        ("RELEASES", "10 PUBLISHED", c["amber"]),
+        ("LICENSE", "MIT · BOTH REPOS", c["green"]),
     ]
     for i, (label, val, col) in enumerate(cells):
         gx = RX + 22 + (i % 3) * (cw + cgap)
@@ -190,7 +190,7 @@ def hero(c, photo_b64=None):
            "terminal with the working rule — trade-offs named, claims receipted, "
            "CI re-proves — and a status grid: VoltHub CI six jobs on both engines, "
            "Q-Trust CI eleven workflows, security audit and CodeQL gated, two docs "
-           "sites, ten tagged releases, zero known CVEs.")
+           "sites, ten published releases, security checks kept in CI.")
     body = "\n".join(p)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(alt)}">
 <!-- {GENERATED_BY} -->
@@ -214,11 +214,11 @@ SECTIONS = [
 ]
 
 ACH_ITEMS = [
-    ("FIRST CONTACT", "q-trust forked · 2026-08-30", DARK["cyan"], icon_fork),
+    ("AUDITABLE", "claims link to proof", DARK["cyan"], icon_fork),
     ("FORMAL PROOF", "Halmos symbolic runs in CI", DARK["violet"], icon_shield),
     ("SELF-TARGET", "PQC scanner scans its own repo", DARK["green"], icon_selfscan),
     ("RACE PROVEN", "double-book tests, 2 engines", DARK["amber"], icon_race),
-    ("ZERO CVE", "npm audit gated, both lockfiles", DARK["green"], icon_gauge),
+    ("SECURITY GATED", "audit checks block drift", DARK["green"], icon_gauge),
 ]
 
 

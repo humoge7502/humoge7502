@@ -5,7 +5,7 @@ make_og.py — renders the 1280x640 social preview PNG for the profile repo
 (GitHub: Settings → Social preview). Composites the dark hero console over a
 chassis-colored canvas with a matching footer strip.
 
-Run after build_assets.py:   python3 scripts/make_og.py
+Run after build_assets.py:   python3 tools/make_og.py
 Needs: cairosvg, Pillow.
 """
 

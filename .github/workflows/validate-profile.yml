@@ -1,0 +1,64 @@
+name: Validate Profile
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate README and assets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out profile
+        uses: actions/checkout@v4
+
+      - name: Validate README references and SVG XML
+        run: |
+          python3 - <<'PY'
+          import re
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          root = Path('.')
+          readme = (root / 'README.md').read_text(encoding='utf-8')
+          start = '<!-- START:ACTIVITY -->'
+          end = '<!-- END:ACTIVITY -->'
+
+          assert readme.count(start) == 1, 'README must contain exactly one activity start marker'
+          assert readme.count(end) == 1, 'README must contain exactly one activity end marker'
+
+          local_refs = re.findall(r'(?:src|href)="(assets/[^"#?]+)"', readme)
+          missing = [ref for ref in local_refs if not (root / ref).is_file()]
+          assert not missing, f'missing local README assets: {missing}'
+
+          svg_files = sorted((root / 'assets').glob('*.svg'))
+          assert svg_files, 'no SVG assets found'
+          for path in svg_files:
+              ET.parse(path)
+
+          forbidden = ('FIRST CONTACT', 'ZERO CVE', 'SLOT OPEN · see scripts/README')
+          stale = [text for text in forbidden if text in readme]
+          assert not stale, f'stale profile claims remain: {stale}'
+          print(f'validated README, {len(local_refs)} local references, {len(svg_files)} SVG files')
+          PY
+
+      - name: Rebuild generated SVG assets
+        run: |
+          tmp_dir="$(mktemp -d)"
+          python3 tools/build_assets.py --out "$tmp_dir"
+          for generated in "$tmp_dir"/*.svg; do
+            name="$(basename "$generated")"
+            diff -u "assets/$name" "$generated"
+          done
+          echo "generated assets are fresh"

@@ -12,13 +12,13 @@ one command and always produces the same output (deterministic, diff-friendly).
 
 ```bash
 # regenerate all assets with the monogram slot (no photo published yet)
-python3 scripts/build_assets.py
+python3 tools/build_assets.py
 
 # regenerate with your portrait baked into the hero (both theme variants)
-python3 scripts/build_assets.py --photo photo.jpg
+python3 tools/build_assets.py --photo photo.jpg
 
 # render the 1280x640 social preview (assets/og-profile.png)
-python3 scripts/make_og.py
+python3 tools/make_og.py
 ```
 
 ## Photo rules (read before baking)

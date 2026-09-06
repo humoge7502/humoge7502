@@ -6,9 +6,10 @@
 #     1. calls the GitHub REST API via `gh api` (first-party CLI — no
 #        third-party marketplace action) to fetch the account's most recent
 #        public events,
-#     2. formats up to 5 of them as markdown list items — push events show the
-#        repo short name plus the first line of the head commit message, other
-#        event types get a friendly label, everything HTML/markdown-escaped —
+#     2. formats up to 5 high-signal events as markdown list items — push events
+#        show the repo short name plus the first line of the head commit message;
+#        releases, pull requests, and issues get a concise label, everything
+#        HTML/markdown-escaped —
 #        and
 #     3. rewrites only the block between the <!-- START:ACTIVITY --> and
 #        <!-- END:ACTIVITY --> markers in README.md, then commits the result
@@ -29,8 +30,8 @@
 #     untouched.
 #   - Events from this profile repo itself are skipped, otherwise the
 #     workflow's own "[skip ci]" pushes would flood the feed.
-#   - Only first lines of commit messages are used (bodies are never
-#     included), truncated to 80 chars, HTML- and markdown-escaped.
+#   - Only first lines of commit messages and issue/PR titles are used (bodies
+#     are never included), truncated to 80 chars, HTML- and markdown-escaped.
 #   - Output is capped at 5 lines; identical content → no commit at all.
 # ---------------------------------------------------------------------------
 
@@ -90,19 +91,12 @@ jobs:
           EVENTS_PATH = sys.argv[1]
 
           ICONS = {
-              "PushEvent": "🚀",
-              "CreateEvent": "🆕",
-              "DeleteEvent": "🗑️",
-              "ForkEvent": "🍴",
-              "IssueCommentEvent": "💬",
-              "IssuesEvent": "📋",
-              "PublicEvent": "🎉",
-              "PullRequestEvent": "🔀",
-              "PullRequestReviewCommentEvent": "💬",
-              "PullRequestReviewEvent": "🔍",
-              "ReleaseEvent": "🏷️",
-              "WatchEvent": "⭐",
+              "PushEvent": "push",
+              "IssuesEvent": "issue",
+              "PullRequestEvent": "pull request",
+              "ReleaseEvent": "release",
           }
+          HIGH_SIGNAL_TYPES = set(ICONS)
 
           def clean(text):
               """First line only; HTML- and markdown-escaped; truncated."""
@@ -140,11 +134,11 @@ jobs:
                   break
               etype = ev.get("type") or ""
               repo_full = (ev.get("repo") or {}).get("name") or ""
-              if not repo_full or repo_full == profile_repo:
+              if etype not in HIGH_SIGNAL_TYPES or not repo_full or repo_full == profile_repo:
                   continue
               repo = "**" + short_repo(repo_full) + "**"
               payload = ev.get("payload") or {}
-              icon = ICONS.get(etype, "📦")
+              label = ICONS[etype]
 
               if etype == "PushEvent":
                   commits = payload.get("commits") or []
@@ -156,35 +150,21 @@ jobs:
                       continue
                   sha = (payload.get("head") or head.get("sha") or "")[:7]
                   suffix = " (" + sha + ")" if sha else ""
-                  items.append(f"- {icon} pushed to {repo} · {msg}{suffix}")
+                  items.append(f"- `{label}` to {repo} · {msg}{suffix}")
               elif etype == "IssuesEvent":
                   title = clean((payload.get("issue") or {}).get("title", ""))
                   action = payload.get("action") or "updated"
                   detail = f" — “{title}”" if title else ""
-                  items.append(f"- {icon} {action} an issue in {repo}{detail}")
+                  items.append(f"- `{label}` {action} in {repo}{detail}")
               elif etype == "PullRequestEvent":
                   title = clean((payload.get("pull_request") or {}).get("title", ""))
                   action = payload.get("action") or "updated"
                   detail = f" — “{title}”" if title else ""
-                  items.append(f"- {icon} {action} a pull request in {repo}{detail}")
+                  items.append(f"- `{label}` {action} in {repo}{detail}")
               elif etype == "ReleaseEvent":
                   tag = clean((payload.get("release") or {}).get("tag_name", ""))
                   detail = " " + tag if tag else ""
-                  items.append(f"- {icon} published release{detail} in {repo}")
-              elif etype == "CreateEvent":
-                  ref_type = payload.get("ref_type") or "repository"
-                  items.append(f"- {icon} created {ref_type} in {repo}")
-              elif etype == "WatchEvent":
-                  items.append(f"- {icon} starred {repo}")
-              elif etype == "ForkEvent":
-                  items.append(f"- {icon} forked {repo}")
-              elif etype == "PublicEvent":
-                  items.append(f"- {icon} open-sourced {repo}")
-              else:
-                  label = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", etype or "activity")
-                  label = label.replace("Event", "").strip() or "activity"
-                  items.append(f"- {icon} {label.lower()} in {repo}")
-
+                  items.append(f"- `{label}`{detail} in {repo}")
           if not items:
               print("::warning::no formattable events — README left untouched")
               sys.exit(0)
