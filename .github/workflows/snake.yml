@@ -1,33 +1,38 @@
-# Generates the contribution-grid snake animation daily and publishes it to
-# the `output` branch. The profile README embeds it via raw.githubusercontent URL.
-#
-# Setup: just commit this file to humoge7502/humoge7502 — no secrets needed
-# (it uses the default GITHUB_TOKEN with contents write permission).
-# First run: Actions tab → "Generate Snake" → Run workflow.
-
-name: Generate Snake
+# ═══════════════════════════════════════════════════════════════
+# SNAKE CAM — animated contribution-grid snake
+# Regenerates the snake SVG nightly and pushes it to the `output`
+# branch. The README reads it from there. Zero manual maintenance.
+# ═══════════════════════════════════════════════════════════════
+name: generate snake
 
 on:
-  schedule:
-    - cron: "0 2 * * *" # daily at 02:00 UTC
-  workflow_dispatch:
+  schedule: # runs at 00:00 UTC every day
+    - cron: "0 0 * * *"
+  workflow_dispatch: # allows manual run from the Actions tab
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 10
     steps:
-      - name: Generate snake SVGs
+      # generates the snake SVGs (Vice-City palette: neon pink snake,
+      # dark-mode dots fading pink → cyan)
+      - name: generate snake.svg
         uses: Platane/snk/svg-only@v3
-        id: snake
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: humoge7502
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg?color_snake=%23FF2D95&color_dots=%231A0B2E,%237B2FFF,%23FF8C42,%23FF2D95,%2300F0FF
+            dist/github-contribution-grid-snake-dark.svg?color_snake=%2300F0FF&color_dots=%230D0221,%233B0F63,%239D4EDD,%23FF2D95,%23FFB703
 
-      - name: Push snake to output branch
+      # pushes the generated SVGs to the `output` branch
+      - name: push snake to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output

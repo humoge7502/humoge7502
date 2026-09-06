@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="240" viewBox="0 0 1400 240" role="img" aria-label="Mission passed">
+<defs>
+  <filter id="fglow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#FF2D95" flood-opacity="0.9"/></filter>
+  <filter id="fglow2" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FFB703" flood-opacity="0.9"/></filter>
+</defs>
+<style>
+  .mp{animation:mpin 1s cubic-bezier(.2,2,.4,1) both, mpp 3.2s ease-in-out 1.1s infinite;}
+  @keyframes mpin{0%{opacity:0;transform:scale(0.7)}100%{opacity:1;transform:scale(1)}}
+  @keyframes mpp{0%,100%{filter:drop-shadow(0 0 4px #FF2D95)}50%{filter:drop-shadow(0 0 14px #FF2D95)}}
+  .rsp{animation:rsin 0.8s ease-out 0.5s both;}
+  @keyframes rsin{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+  .ray{transform-origin:700px 96px;animation:rayspin 26s linear infinite;}
+  @keyframes rayspin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
+<rect width="1400" height="240" rx="22" fill="#0A0118" stroke="#9D4EDD" stroke-width="2" stroke-opacity="0.6"/>
+<g class="ray" opacity="0.12">
+  <path d="M700 96 L1600 96 L1589 237 Z" fill="#9D4EDD"/><path d="M700 96 L1479 546 L1399 662 Z" fill="#9D4EDD"/><path d="M700 96 L1150 875 L1023 936 Z" fill="#9D4EDD"/><path d="M700 96 L700 996 L559 985 Z" fill="#9D4EDD"/><path d="M700 96 L250 875 L134 795 Z" fill="#9D4EDD"/><path d="M700 96 L-79 546 L-140 419 Z" fill="#9D4EDD"/><path d="M700 96 L-200 96 L-189 -45 Z" fill="#9D4EDD"/><path d="M700 96 L-79 -354 L1 -470 Z" fill="#9D4EDD"/><path d="M700 96 L250 -683 L377 -744 Z" fill="#9D4EDD"/><path d="M700 96 L700 -804 L841 -793 Z" fill="#9D4EDD"/><path d="M700 96 L1150 -683 L1266 -603 Z" fill="#9D4EDD"/><path d="M700 96 L1479 -354 L1540 -227 Z" fill="#9D4EDD"/>
+</g>
+<text class="mp" x="700" y="112" text-anchor="middle" font-family="'Arial Black','Segoe UI',Arial,sans-serif" font-weight="900" font-style="italic" font-size="76" fill="#F3EFFF" filter="url(#fglow)">MISSION PASSED</text>
+<g class="rsp">
+<text x="700" y="158" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="800" font-size="26" letter-spacing="6" fill="#FFB703" filter="url(#fglow2)">+ RESPECT &#160;&#183;&#160; + REPUTATION</text>
+</g>
+<text x="700" y="200" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="600" font-size="17" letter-spacing="3" fill="#B8A8D9">NEXT MISSION: BUILDING THE UNBREAKABLE &#183; CO-OP WITH YOU?</text>
+</svg>
